@@ -18,7 +18,7 @@ document.querySelector('.busca'),addEventListener('submit' , async (event)=>{
                 temp: json.main.temp,
                 tempIcon: json.weather[0].icon,
                 windSpeed: json.wind.speed,
-                windAngle: json.wind.deg,
+                windAngle: json.wind.deg
             });
         }else {
             showWarning('Não encontramos esta localização')
@@ -29,7 +29,12 @@ document.querySelector('.busca'),addEventListener('submit' , async (event)=>{
 });
 
 function showInfo(json) {
+    showWarning('');
 
+    document.querySelector('.resultado').style.display = 'block';
+
+    document.querySelector('.titulo').innerHTML = `${json.name} , ${json.country}`;
+    
 }
 
 
